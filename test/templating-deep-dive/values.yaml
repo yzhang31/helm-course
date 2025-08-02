@@ -20,13 +20,16 @@ image:
 containerPorts:
   http: 80
 
-## Setting for NGINX service
+## Setting for NGINX services
 ##
-## @param service.enabled Whether to deploy the service altogether or not
-## @param service.type the type of service in front of the Nginx pods
-## @param service.port the port where the service is receiving requests
+## @param services[*].type the type of service in front of the Nginx pods
+## @param services[*].port the port where the service is receiving requests
 
-service:
-  enabled: false
-  type: ClusterIP
-  port: 80
+services:
+  svc1:
+  - type: ClusterIP
+    port: 80
+  - type: NodePort
+    port: 30007
+
+    
