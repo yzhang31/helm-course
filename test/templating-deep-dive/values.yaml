@@ -1,9 +1,9 @@
-
+## @param customName allows to set a custom resource name for the K8S resources in the charts
+##        Defaults to {{.Release.name}}-{{ .Chart.Name}}
+customName: ''
 
 ## @param replicatCount Number of Nginx
 replicaCount: 3
-
-environment: production
 
 ## Setting for NGINX image
 ## @param image.name Nginx image name to use
