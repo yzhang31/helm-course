@@ -13,6 +13,14 @@ image:
   name: nginx
   tag: 1.27.0
 
+## Setting for NGINX image securityContext
+## @param securityContext.runAsUser
+## @param securityContext.fsGroup 
+securityContext:
+  enabled: true
+  runAsUser: 1000
+  fsGroup: 2000
+
 
 ## NGINX container ports
 ##
@@ -22,14 +30,16 @@ containerPorts:
 
 ## Setting for NGINX services
 ##
-## @param services[*].type the type of service in front of the Nginx pods
-## @param services[*].port the port where the service is receiving requests
+##
+## @param services["*"].type the type of service in front of the Nginx pods
+## @param services["*"].port the port where the service is receiving requests
 
 services:
   svc1:
-  - type: ClusterIP
+    type: ClusterIP
     port: 80
-  - type: NodePort
+  svc2:
+    type: NodePort
     port: 30007
 
     
