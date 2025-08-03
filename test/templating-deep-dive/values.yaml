@@ -2,7 +2,7 @@
 ##        Defaults to {{.Release.name}}-{{ .Chart.Name}}
 customName: ''
 
-## @param replicatCount Number of Nginx
+## @param replicaCount Number of Nginx
 replicaCount: 3
 
 ## Setting for NGINX image
