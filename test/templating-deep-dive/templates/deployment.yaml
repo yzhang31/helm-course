@@ -1,3 +1,5 @@
+{{- include "templating-deep-dive.validators.portRange" .Values.containerPorts.http -}}
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -21,13 +23,11 @@ spec:
 
           {{- with .Values.securityContext | default dict}}
           {{- if and (hasKey . "enabled") .enabled }}
-          # Trying to access myVar: {{ $myVar }}
           securityContext:
             runAsUser: {{ .runAsUser}}
             fsGroup: {{ .fsGroup}}
           {{- end }}
           {{- end }}
-          # Trying to access myVar: {{ $myVar }}
           {{- if .Values.services | default dict | len }}
           ports:
             - containerPort: {{ .Values.containerPorts.http }}
